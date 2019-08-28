@@ -1,0 +1,28 @@
+uuid: 6ebf522a-939e-422d-9841-1270148e8469
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tdd_bhcc.body
+    - node.type.tdd_bhcc
+  module:
+    - text
+    - user
+id: node.tdd_bhcc.default
+targetEntityType: node
+bundle: tdd_bhcc
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

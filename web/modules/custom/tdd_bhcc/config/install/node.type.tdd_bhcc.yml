@@ -1,0 +1,9 @@
+langcode: en
+status: true
+name: 'TDD BHCC'
+type: tdd_bhcc
+description: 'A Test type for the TDD BHCC module'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,17 @@
+uuid: 13d0b8fc-4d09-4e5b-8cd6-f0e6604d9ad0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'TDD BHCC'
+type: tdd_bhcc
+description: 'A Test type for the tdd BHCC module'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

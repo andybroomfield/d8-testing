@@ -1,0 +1,30 @@
+uuid: 4363374d-033b-469d-b7a5-b00672f09ae6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tdd_bhcc.body
+    - node.type.tdd_bhcc
+  module:
+    - text
+    - user
+id: node.tdd_bhcc.teaser
+targetEntityType: node
+bundle: tdd_bhcc
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -3,12 +3,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.page
+    - node.type.tdd_bhcc
   module:
     - node
     - user
-id: pages
-label: pages
+id: tdd_bhcc_view
+label: 'TDD BHCC View'
 module: views
 description: ''
 tag: ''
@@ -140,7 +140,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            page: page
+            tdd_bhcc: tdd_bhcc
           group: 1
           exposed: false
           expose:
@@ -201,7 +201,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: pages
+      title: 'BHCC Content'
       header: {  }
       footer: {  }
       empty: {  }
@@ -224,7 +224,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: pages
+      path: tdd-bhcc-content
     cache_metadata:
       max-age: -1
       contexts:
