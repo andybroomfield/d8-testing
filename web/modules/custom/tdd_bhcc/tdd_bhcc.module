@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains tdd_bhcc.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tdd_bhcc_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tdd_bhcc module.
+    case 'help.page.tdd_bhcc':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Oliver Davies Test Example') . '</p>';
+      return $output;
+
+    default:
+  }
+}

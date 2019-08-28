@@ -1,0 +1,5 @@
+name: 'TDD BHCC'
+type: module
+description: 'Oliver Davies Test Example'
+core: 8.x
+package: 'Testing'
