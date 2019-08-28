@@ -1,0 +1,33 @@
+uuid: e971bc08-54b5-4a92-96c4-8921a3ba5b82
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: R7DcebdSHknDPTiW5pl_cNI_JpzsaOO2pLqOB3pmJmc
+id: content_admin
+label: 'Content admin'
+weight: 3
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access tasty backend admin pages'
+  - 'access toolbar'
+  - 'add terms in tags'
+  - 'administer footer menu items'
+  - 'administer main menu items'
+  - 'create article content'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete any article content'
+  - 'delete any page content'
+  - 'delete terms in tags'
+  - 'edit any article content'
+  - 'edit any page content'
+  - 'edit terms in tags'
+  - 'override article published option'
+  - 'override page published option'
+  - 'reorder terms in tags'
+  - 'view any unpublished article content'
+  - 'view any unpublished page content'
+  - 'view tb_manage in toolbar'
+  - 'view the administration theme'

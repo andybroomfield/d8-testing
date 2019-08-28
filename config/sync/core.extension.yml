@@ -1,4 +1,6 @@
 module:
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -25,20 +27,27 @@ module:
   menu_ui: 0
   node: 0
   options: 0
+  override_node_options: 0
   page_cache: 0
   path: 0
   quickedit: 0
   rdf: 0
+  role_delegation: 0
   search: 0
   shortcut: 0
   system: 0
+  tasty_backend: 0
   taxonomy: 0
+  taxonomy_access_fix: 0
   text: 0
   toolbar: 0
+  toolbar_menu: 0
   tour: 0
   update: 0
   user: 0
+  view_unpublished: 0
   views_ui: 0
+  menu_admin_per_menu: 1
   menu_link_content: 1
   views: 10
   standard: 1000

@@ -1,0 +1,19 @@
+uuid: 8dd706b4-c21c-4809-82b3-3c9857c640be
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: O_-z8T79TEQ4fF5M6Ng8I9TDnFH6MJMAW_FLmsqyfLE
+id: user_admin
+label: 'User admin'
+weight: 4
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'assign content_admin role'
+  - 'assign user_admin role'
+  - 'view tb_manage in toolbar'
+  - 'view the administration theme'

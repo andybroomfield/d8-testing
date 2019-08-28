@@ -1,0 +1,10 @@
+uuid: 89654e75-a28b-4ff1-9f9a-404266d0047f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PH4SpPBnueiAqwXl-CpY9TTC1ECy5G6XQbz3L10PVPY
+id: tb-manage
+label: Manage
+description: 'Management menu for users who are not full administrators.'
+locked: false
