@@ -26,6 +26,7 @@ class PageListTest extends BrowserTestBase {
     // as other types of content.
     $this->drupalCreateContentType(['type' => 'article']);
 
+    // Create some nodes
     $this->drupalCreateNode(['type' => 'page', 'status' => TRUE]);     // NID : 1
     $this->drupalCreateNode(['type' => 'article']);                    // NID : 2
     $this->drupalCreateNode(['type' => 'page', 'status' => FALSE]);    // NID : 3
@@ -42,6 +43,46 @@ class PageListTest extends BrowserTestBase {
     // This will be an array of Node IDs, from the test
     // Correct is 1, 4
     $this->assertEquals([1, 4], $nids);
+  }
+
+  /**
+   * Test results are in alphabetical order
+   */
+  public function testResultsAreOrderedAlphabetically() {
+
+    // Given I have multiple nodes with different titles.
+    // Have added created dates out of order to test that dates do not sort the order
+    $this->drupalCreateNode(['title' => 'AAA', 'created' => '-60 days']);
+    $this->drupalCreateNode(['title' => 'DDD', 'created' => 'now']);
+    $this->drupalCreateNode(['title' => 'CCC', 'created' => '-20 days']);
+    $this->drupalCreateNode(['title' => 'BBB', 'created' => '-10 days']);
+
+    // When I view the pages list.
+    $nids = array_column(views_get_view_result('pages'), 'nid');
+
+    // Then I should see pages in the correct order.
+    $this->assertEquals([1, 4, 3, 2], $nids);
+
+  }
+
+  /**
+   * Test results are in date order when title is the same
+   */
+  public function testResultsAreOrderedByDateWhenSameTitle() {
+
+    // Given I have multiple nodes with Same titles.
+    // With created at different dates
+    $this->drupalCreateNode(['title' => 'Same Title', 'created' => '-60 days']);
+    $this->drupalCreateNode(['title' => 'Same Title', 'created' => 'now']);
+    $this->drupalCreateNode(['title' => 'Same Title', 'created' => '-10 days']);
+    $this->drupalCreateNode(['title' => 'Same Title', 'created' => '-20 days']);
+
+    // When I view the pages list.
+    $nids = array_column(views_get_view_result('pages'), 'nid');
+
+    // Then I should see pages in the correct (date) order.
+    $this->assertEquals([2, 3, 4, 1], $nids);
+
   }
 
 }
