@@ -43,8 +43,16 @@ class PageListTest extends BrowserTestBase {
 
     // Then I should only see the published pages.
     // This will be an array of Node IDs, from the test
-    // Correct is 1, 4
-    $this->assertEquals([1, 4], $nids);
+    // Test changed as to assertContains as the order can be different
+    // Also possible to use assertEquals as long as the array is sorted first.
+
+    // Check that 1 and 4 are present,
+    $this->assertContains(1, $nids);
+    $this->assertContains(4, $nids);
+
+    // Check that 2 and 3 are not present
+    $this->assertNotContains(2, $nids);
+    $this->assertNotContains(3, $nids);
   }
 
   /**
@@ -107,8 +115,9 @@ class PageListTest extends BrowserTestBase {
     // When I view the pages list with a term argument
     // Has to be passes as interger argument for TermID
     $viewResult = views_get_view_result('tdd_bhcc_view', 'default', 2);
-    // print_r($viewResult);
     $nids = array_column($viewResult, 'nid');
+    // Sort the array so its in the right order
+    sort($nids);
 
     // Then I should see only pages with that term
     $this->assertEquals([2, 4], $nids);
