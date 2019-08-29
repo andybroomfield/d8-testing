@@ -1,0 +1,8 @@
+uuid: c21394b6-9528-47fa-bd41-24437f857f5d
+langcode: en
+status: true
+dependencies: {  }
+name: 'TDD BHCC Tags'
+vid: tdd_bhcc_tags
+description: 'Tags for BHCC Test Module'
+weight: 0

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'TDD BHCC Tags'
+vid: tdd_bhcc_tags
+description: 'Tags for BHCC Test Module'
+weight: 0

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bhcc_tags
+    - node.type.tdd_bhcc
+    - taxonomy.vocabulary.tdd_bhcc_tags
+id: node.tdd_bhcc.field_bhcc_tags
+field_name: field_bhcc_tags
+entity_type: node
+bundle: tdd_bhcc
+label: 'BHCC Tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tdd_bhcc_tags: tdd_bhcc_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

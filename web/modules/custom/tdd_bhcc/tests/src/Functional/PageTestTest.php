@@ -4,6 +4,8 @@
 namespace Drupal\Tests\tdd_bhcc\Functional;
 
 use Drupal\Tests\BrowserTestBase;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
 
 class PageListTest extends BrowserTestBase {
 
@@ -12,10 +14,10 @@ class PageListTest extends BrowserTestBase {
   /**
    * Test the Listing Page Exists
    */
-  public function testListingPageExists() {
-    $this->drupalGet('tdd-bhcc-content');
-    $this->assertSession()->statusCodeEquals(200);
-  }
+  // public function testListingPageExists() {
+  //   $this->drupalGet('tdd-bhcc-content');
+  //   $this->assertSession()->statusCodeEquals(200);
+  // }
 
   /**
    * Test only published pages are shown
@@ -83,6 +85,33 @@ class PageListTest extends BrowserTestBase {
     // Then I should see pages in the correct (date) order.
     $this->assertEquals([2, 3, 4, 1], $nids);
 
+  }
+
+  /**
+   * Test results are filtered by a term argument
+   */
+  public function testResultsAreFilteredByTermArgument() {
+
+    // given I have multiple nodes with different taxonomy terms
+    // create taxonomy terms, use the vocabulary from config
+    Term::create(['name' => 'AAA', 'vid' => 'tdd_bhcc_tags'])->save(); // TermID : 1
+    Term::create(['name' => 'BBB', 'vid' => 'tdd_bhcc_tags'])->save(); // TermID : 2
+    Term::create(['name' => 'CCC', 'vid' => 'tdd_bhcc_tags'])->save(); // TermID : 3
+
+    // create nodes
+    $this->drupalCreateNode(['type' => 'tdd_bhcc', 'field_bhcc_tags' => 1]);
+    $this->drupalCreateNode(['type' => 'tdd_bhcc', 'field_bhcc_tags' => 2]);
+    $this->drupalCreateNode(['type' => 'tdd_bhcc', 'field_bhcc_tags' => 3]);
+    $this->drupalCreateNode(['type' => 'tdd_bhcc', 'field_bhcc_tags' => 2]);
+
+    // When I view the pages list with a term argument
+    // Has to be passes as interger argument for TermID
+    $viewResult = views_get_view_result('tdd_bhcc_view', 'default', 2);
+    // print_r($viewResult);
+    $nids = array_column($viewResult, 'nid');
+
+    // Then I should see only pages with that term
+    $this->assertEquals([2, 4], $nids);
   }
 
 }
